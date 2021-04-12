@@ -11,8 +11,13 @@ I will use Axios for fetch data and bootstrap for dropdown button.
 
 ## Step 2
 
-- [ ] Implement a user input used to filter the data in your chart
+- [x] Implement a user input used to filter the data in your chart
 
 ## Step 3
 
-- [ ] Implement a Table view of the data with a view switcher
+- [x] Implement a Table view of the data with a view switcher
+
+### To improve
+
+- [ ] If i know more about pagination of Nasa API, i would make it more similarly. But, i did my best at the time allocated.
+- [ ] If i divided page with router(main, earth, juptr...), it will be more nice, i think.

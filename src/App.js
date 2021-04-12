@@ -12,6 +12,7 @@ const api = axios.create({
 function App() {
   const [neoDataArray, setNeoDataArray] = useState([]);
   const [selectedArray, setSelectedArray] = useState([]);
+  const [isBarChart, setIsBarChart] = useState(true);
   /**
    * for select a data : Earth, Juptr, Mars, Merc
    * I use neoDataArray for origin data, selectedArray for data which change by user click
@@ -27,8 +28,8 @@ function App() {
   }, []);
 
   /**
-   *
-   *
+   * 1/ find close approach array by current time
+   * 2/ find a lastest orbiting_body
    */
   const nameFilter = (data, name) =>
     data.close_approach_data
@@ -43,7 +44,9 @@ function App() {
     );
     setSelectedArray(selected);
   };
-
+  const toggle = () => {
+    setIsBarChart((prev) => !prev);
+  };
   return (
     <>
       <Dropdown>
@@ -57,11 +60,15 @@ function App() {
           <Dropdown.Item onClick={buttonHandle}>Merc</Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
+      <button onClick={toggle}>
+        {isBarChart ? "To Table" : "To Bar Chart"}
+      </button>
       <div style={{ display: "flex", maxWidth: 900 }}>
         <Chart
           width={900}
           height={900}
-          chartType="BarChart"
+          // chartType="BarChart"
+          chartType={isBarChart ? "BarChart" : "Table"}
           loader={<div>Loading Chart</div>}
           data={[
             [
