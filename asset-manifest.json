@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.js": "/botify/static/js/main.32e64451.chunk.js",
+    "main.js.map": "/botify/static/js/main.32e64451.chunk.js.map",
+    "runtime-main.js": "/botify/static/js/runtime-main.fec98e53.js",
+    "runtime-main.js.map": "/botify/static/js/runtime-main.fec98e53.js.map",
+    "static/css/2.150d169a.chunk.css": "/botify/static/css/2.150d169a.chunk.css",
+    "static/js/2.97ae154a.chunk.js": "/botify/static/js/2.97ae154a.chunk.js",
+    "static/js/2.97ae154a.chunk.js.map": "/botify/static/js/2.97ae154a.chunk.js.map",
+    "static/js/3.630840a5.chunk.js": "/botify/static/js/3.630840a5.chunk.js",
+    "static/js/3.630840a5.chunk.js.map": "/botify/static/js/3.630840a5.chunk.js.map",
+    "index.html": "/botify/index.html",
+    "static/css/2.150d169a.chunk.css.map": "/botify/static/css/2.150d169a.chunk.css.map",
+    "static/js/2.97ae154a.chunk.js.LICENSE.txt": "/botify/static/js/2.97ae154a.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.fec98e53.js",
+    "static/css/2.150d169a.chunk.css",
+    "static/js/2.97ae154a.chunk.js",
+    "static/js/main.32e64451.chunk.js"
+  ]
+}
