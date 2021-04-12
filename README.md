@@ -6,8 +6,8 @@ I will use Axios for fetch data and bootstrap for dropdown button.
 ## Step 1
 
 - [x] Create a React Application
-- [ ] Fetch data from NASA's API
-- [ ] Display That data in a chart using Google Charts
+- [x] Fetch data from NASA's API
+- [x] Display That data in a chart using Google Charts
 
 ## Step 2
 

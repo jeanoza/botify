@@ -19,10 +19,21 @@ function App() {
 
   return (
     <>
+      <Dropdown>
+        <Dropdown.Toggle variant="success" id="dropdown-basic">
+          Orbiting Body
+        </Dropdown.Toggle>
+        <Dropdown.Menu>
+          <Dropdown.Item href="#/action-1">Earth</Dropdown.Item>
+          <Dropdown.Item href="#/action-2">Juptr</Dropdown.Item>
+          <Dropdown.Item href="#/action-3">Mars</Dropdown.Item>
+          <Dropdown.Item href="#/action-4">Merc</Dropdown.Item>
+        </Dropdown.Menu>
+      </Dropdown>
       <div style={{ display: "flex", maxWidth: 900 }}>
         <Chart
           width={900}
-          height={1200}
+          height={900}
           chartType="BarChart"
           loader={<div>Loading Chart</div>}
           data={[
