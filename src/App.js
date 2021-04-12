@@ -5,19 +5,44 @@ import { Dropdown } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const api = axios.create({
-  baseURL: "https://api.nasa.gov/neo/rest/v1/neo/browse?api_key=DEMO_KEY",
+  baseURL:
+    "https://api.nasa.gov/neo/rest/v1/neo/browse?api_key=SwPLIlNJuecT8HvelwbeyVBqq9uJAdfyClVjQLeM",
 });
 
 function App() {
   const [neoDataArray, setNeoDataArray] = useState([]);
+  const [selectedArray, setSelectedArray] = useState([]);
+  /**
+   * for select a data : Earth, Juptr, Mars, Merc
+   * I use neoDataArray for origin data, selectedArray for data which change by user click
+   */
   useEffect(() => {
     api.get().then((response) => {
       const {
         data: { near_earth_objects },
       } = response;
       setNeoDataArray(near_earth_objects);
+      setSelectedArray(near_earth_objects);
     });
   }, []);
+
+  /**
+   *
+   *
+   */
+  const nameFilter = (data, name) =>
+    data.close_approach_data
+      .filter((data) => data.epoch_date_close_approach < Date.now())
+      .reverse()[0].orbiting_body === name;
+  const buttonHandle = (event) => {
+    const {
+      target: { outerText },
+    } = event;
+    const selected = neoDataArray.filter((neoData) =>
+      nameFilter(neoData, outerText)
+    );
+    setSelectedArray(selected);
+  };
 
   return (
     <>
@@ -26,10 +51,10 @@ function App() {
           Orbiting Body
         </Dropdown.Toggle>
         <Dropdown.Menu>
-          <Dropdown.Item href="#/action-1">Earth</Dropdown.Item>
-          <Dropdown.Item href="#/action-2">Juptr</Dropdown.Item>
-          <Dropdown.Item href="#/action-3">Mars</Dropdown.Item>
-          <Dropdown.Item href="#/action-4">Merc</Dropdown.Item>
+          <Dropdown.Item onClick={buttonHandle}>Earth</Dropdown.Item>
+          <Dropdown.Item onClick={buttonHandle}>Juptr</Dropdown.Item>
+          <Dropdown.Item onClick={buttonHandle}>Mars</Dropdown.Item>
+          <Dropdown.Item onClick={buttonHandle}>Merc</Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
       <div style={{ display: "flex", maxWidth: 900 }}>
@@ -44,7 +69,7 @@ function App() {
               "Min Estimated Diameter(km)",
               "Max Estimated Diameter",
             ],
-            ...neoDataArray
+            ...selectedArray
               .sort(
                 (a, b) =>
                   b.estimated_diameter.kilometers.estimated_diameter_min -
